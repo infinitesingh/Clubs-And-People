@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Clubs And People</string>
+    <string name="username_string">UserName</string>
+    <string name="password_string">Password</string>
 </resources>

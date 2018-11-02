@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="base_color">#FFFFFF</color>
+    <color name="primary_field_text_color">#eded07</color>
+    <color name="error_text_color">#FF0000</color>
+    <color name="backgd_login_col">#f6f4ff</color>
 </resources>
