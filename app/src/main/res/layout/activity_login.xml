@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".LoginActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        tools:ignore="UselessLeaf" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/college_club2"
+        android:paddingTop="40dp"
+        android:paddingBottom="20dp"
+        android:contentDescription="@null" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameWrapper"
+        android:textColorHint="@android:color/white"
+        android:padding="10dp"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout.Login">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/uname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_string"
+            app:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passWrapper"
+        android:textColorHint="@android:color/white"
+        android:padding="10dp"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout.Login">
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_string"
+            app:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_string"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@android:color/white"
+        android:onClick="login"/>
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/not_a_user_str"
+        android:gravity="center"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:textColor="@android:color/white"
+        android:onClick="signUpRedirect"/>
+</LinearLayout>

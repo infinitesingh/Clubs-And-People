@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         final Intent splshIntent = new Intent(this,
-                com.poseidon.nimitbhardwaj.clubsandpeople.MainActivity.class);
+                com.poseidon.nimitbhardwaj.clubsandpeople.LoginActivity.class);
 
         // The Main Work for loading the data
         Handler handSplash = new Handler();
@@ -33,5 +33,6 @@ public class SplashActivity extends AppCompatActivity {
         }, SPLASH_TIME_OUT);
     }
     private void captureDefaults(Bundle bundl) {
+        // Main Work of loading
     }
 }
