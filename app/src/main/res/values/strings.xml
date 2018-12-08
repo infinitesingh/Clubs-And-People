@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">Clubs And People</string>
-    <string name="username_string">Username</string>
+    <string name="username_string">Email ID</string>
     <string name="password_string">Password</string>
     <string name="login_string">Log In</string>
     <string name="not_a_user_str">Not a User Yet? Create One</string>
     <string name="signup_but">Create One</string>
+    <string name="signup_intro_string">Fine Man !! \nYou are a new recruit</string>
+    <string name="full_name_str">Full Name</string>
+    <string name="roll_number_str">Roll Number</string>
+    <string name="repeat_pass_str">Repeat Password</string>
+    <string name="sign_up_str">Sign Up</string>
 </resources>

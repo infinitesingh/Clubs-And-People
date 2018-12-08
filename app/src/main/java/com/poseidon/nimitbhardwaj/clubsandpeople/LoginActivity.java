@@ -22,7 +22,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signUpRedirect(View view) {
-
+        Intent signUp = new Intent(this,
+                com.poseidon.nimitbhardwaj.clubsandpeople.SignupActivity.class);
+        startActivity(signUp);
     }
 
     @Override

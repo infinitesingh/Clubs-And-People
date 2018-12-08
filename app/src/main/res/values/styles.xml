@@ -28,5 +28,9 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="edittext_err" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/red_err</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>
