@@ -1,7 +1,6 @@
 package com.poseidon.nimitbhardwaj.clubsandpeople.utilities;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,9 +12,16 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 
-public class AsyncRequests extends AsyncTask<String, Void, Integer> {
+public class AsyncRequests extends AsyncTask<String, Void, JSONObject> {
     private static final MediaType JSONTYPE
             = MediaType.parse("application/json; charset=utf-8");
+
+    private BaseAsyncAbleActivity act;
+
+    public AsyncRequests(BaseAsyncAbleActivity acti) {
+        this.act = acti;
+    }
+
 
     @Override
     public void onPreExecute() {
@@ -23,7 +29,8 @@ public class AsyncRequests extends AsyncTask<String, Void, Integer> {
     }
 
     @Override
-    public Integer doInBackground(String ...arr) {
+    public JSONObject doInBackground(String ...arr) {
+
         String URL = arr[0];
         String data = arr[1];
         OkHttpClient cli = new OkHttpClient();
@@ -35,17 +42,17 @@ public class AsyncRequests extends AsyncTask<String, Void, Integer> {
         try {
             String resp = cli.newCall(req).execute().body().string();
             JSONObject obj = new JSONObject(resp);
-            return (int) obj.get("statusCode");
+            return obj;
         } catch(IOException e) {
-            return -1;
+            return new JSONObject();
         } catch (JSONException e) {
-            return -2;
+            return new JSONObject();
         }
     }
 
     @Override
-    public void onPostExecute(Integer a) {
+    public void onPostExecute(JSONObject a) {
         super.onPostExecute(a);
-        Log.d("alpha", "fuck"+a);
+        this.act.afterTask(a);
     }
 }

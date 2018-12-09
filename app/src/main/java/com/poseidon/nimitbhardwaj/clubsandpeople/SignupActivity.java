@@ -2,23 +2,37 @@ package com.poseidon.nimitbhardwaj.clubsandpeople;
 
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.poseidon.nimitbhardwaj.clubsandpeople.utilities.AsyncRequests;
+import com.poseidon.nimitbhardwaj.clubsandpeople.utilities.BaseAsyncAbleActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class SignupActivity extends AppCompatActivity {
+public class SignupActivity extends BaseAsyncAbleActivity {
     private AppCompatEditText fullName, emailId, rollNo, passWord, repPassWord;
     private boolean isValidForm;
     private static final String myURL = "http://csec.nith.ac.in:3003/api/v1/auth/signup";
 
-
+    public void afterTask(JSONObject x) {
+        try {
+            if (x.getInt("statusCode") == 200) {
+                Toast.makeText(this, "SignUp Success", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+            } else {
+                Toast.makeText(this, "Something Went Wrong", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            Toast.makeText(this, "Some Unexpected Error Occur",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
         @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +49,7 @@ public class SignupActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         startActivity(new Intent(SignupActivity.this,
-                com.poseidon.nimitbhardwaj.clubsandpeople.LoginActivity.class));
+                LoginActivity.class));
         finish();
     }
 
@@ -66,7 +80,6 @@ public class SignupActivity extends AppCompatActivity {
         String repPassword_str = normalizeField(repPassWord,
                 (TextInputLayout) findViewById(R.id.password_repeat_signup_layout));
         strBuf.append(" repPass: "+repPassword_str);
-
 
         String[] nameArr = fullName_str.split(" ");
         String firName = "", midName = "", lastName = "";
@@ -117,8 +130,7 @@ public class SignupActivity extends AppCompatActivity {
                     obj.put("email", emailId_str);
                     obj.put("password", password_str);
                 } catch (JSONException e) {}
-                new AsyncRequests().execute(myURL, obj.toString());
-
+                new AsyncRequests(this).execute(myURL, obj.toString());
             } else {
                 ((TextInputLayout)findViewById(R.id.password_repeat_signup_layout))
                         .setError("Passwords don't match");
@@ -152,4 +164,6 @@ public class SignupActivity extends AppCompatActivity {
         }
         return tmp;
     }
+
+
 }

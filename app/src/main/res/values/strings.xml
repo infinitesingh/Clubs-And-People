@@ -10,4 +10,7 @@
     <string name="roll_number_str">Roll Number</string>
     <string name="repeat_pass_str">Repeat Password</string>
     <string name="sign_up_str">Sign Up</string>
+    <string name="profile_basic_str">Profile</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 </resources>

@@ -24,14 +24,14 @@
         android:paddingBottom="20dp"
         android:contentDescription="@null" />
     <android.support.design.widget.TextInputLayout
+        android:id = "@+id/uname_login_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/userNameWrapper"
         android:textColorHint="@android:color/white"
         android:padding="10dp"
         app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout.Login">
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/uname"
+            android:id="@+id/uname_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/username_string"
@@ -44,12 +44,12 @@
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/passWrapper"
+        android:id = "@+id/pass_login_layout"
         android:textColorHint="@android:color/white"
         android:padding="10dp"
         app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout.Login">
         <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/password"
+            android:id="@+id/password_login"
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
