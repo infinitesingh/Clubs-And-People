@@ -1,6 +1,7 @@
 package com.poseidon.nimitbhardwaj.clubsandpeople;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatEditText;
@@ -22,18 +23,38 @@ public class LoginActivity extends BaseAsyncAbleActivity {
 
     public void afterTask(JSONObject x) {
         try {
-            Log.d("alpha", x.toString());
             if (Integer.parseInt(x.get("statusCode").toString()) == 200) {
                 Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
 
                 // Start the home activity here
 
+                SharedPreferences pref = getSharedPreferences("Login", MODE_PRIVATE);
+                SharedPreferences.Editor ed = pref.edit();
+                ed.putString("token", x.getJSONObject("data").getString("token"));
+                ed.putBoolean("isLoggedIn", true);
+                ed.putString("firstName",
+                        x.getJSONObject("data").getJSONObject("user").getString("firstName"));
+                ed.putString("lastName",
+                        x.getJSONObject("data").getJSONObject("user").getString("lastName"));
+                ed.putString("email",
+                        x.getJSONObject("data").getJSONObject("user").getString("email"));
+                ed.putString("branch",
+                        x.getJSONObject("data").getJSONObject("user").getString("branch"));
+                ed.putString("rollNo",
+                        x.getJSONObject("data").getJSONObject("user").getString("rollNo"));
+                ed.putString("isStudent",
+                        x.getJSONObject("data").getJSONObject("user").getString("isStudent"));
+                ed.putString("isPres",
+                        x.getJSONObject("data").getJSONObject("user").getString("isPresident"));
+
+                ed.apply();
+
+
                 Intent i = new Intent(this, BasicActivity.class);
                 i.putExtra("token",
                         x.getJSONObject("data").getString("token"));
-                i.putExtra("token", x.getJSONObject("data").getString("token"));
-
                 startActivity(i);
+                finish();
 
             } else {
                 Toast.makeText(this, "Incorrect Password or Username",
@@ -96,11 +117,12 @@ public class LoginActivity extends BaseAsyncAbleActivity {
         Intent signUp = new Intent(this,
                 SignupActivity.class);
         startActivity(signUp);
+        finish();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        finish();
+        LoginActivity.this.finish();
     }
 }

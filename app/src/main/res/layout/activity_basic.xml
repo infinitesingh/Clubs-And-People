@@ -9,7 +9,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView
@@ -17,8 +16,8 @@
         android:layout_height="match_parent"
         app:menu="@menu/nav_basic"
         android:layout_gravity="start"
-        android:id="@+id/nv_basic">
-
+        android:id="@+id/nv_basic"
+        app:headerLayout="@layout/basic_header">
     </android.support.design.widget.NavigationView>
 
 

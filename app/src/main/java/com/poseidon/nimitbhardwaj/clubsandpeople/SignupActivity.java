@@ -113,7 +113,6 @@ public class SignupActivity extends BaseAsyncAbleActivity {
         strBuf.append(" Mid Name: "+midName);
         strBuf.append(" Last Name: "+lastName);
         strBuf.append(" IsValid: "+isValidForm);
-        Log.d("alpha", strBuf.toString());
         // If Data that is here is valid then its all good
         // We will do work, else errors are already reported on
         // EditTexts

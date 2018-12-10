@@ -13,4 +13,5 @@
     <string name="profile_basic_str">Profile</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="logout_basic_str">Logout</string>
 </resources>
